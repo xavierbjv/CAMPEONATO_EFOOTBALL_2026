@@ -17,43 +17,54 @@ th { color: #c9d7e3; font-weight: 600; }
 .score { font-variant-numeric: tabular-nums; }
 .footer { margin-top: 10px; }
 
-/* ===== Participantes ===== */
-.participants{
+/* ===== Participantes: 3 en una fila, mismo tamaño ===== */
+.participants-row{
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:14px;
+  align-items:start;
 }
 
-.p-card{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  padding:12px;
+.participant{
+  margin:0;
+  text-align:center;
+}
+
+.avatar{
+  width:100%;
+  aspect-ratio: 1 / 1;            /* cuadrado automático */
+  border-radius:14px;              /* o 999px si los quiere circulares */
+  overflow:hidden;
   border:1px solid var(--line);
-  border-radius:12px;
   background: rgba(255,255,255,.02);
 }
 
-.p-card img{
-  width:58px;
-  height:58px;
-  border-radius:999px;
-  object-fit:cover;
-  border:1px solid var(--line);
+.avatar img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;                /* recorta uniforme y mantiene proporción */
+  object-position:center;
 }
 
-.p-name{
+.participant figcaption{
+  margin-top:8px;
   font-weight:800;
   font-size:14px;
   letter-spacing:.3px;
+  color: var(--text);
 }
 
-.p-meta{
-  font-size:12px;
-}
-
-/* Responsive */
-@media (max-width: 860px){
-  .participants{ grid-template-columns: 1fr; }
-  .p-card{ justify-content:flex-start; }
+/* Mantener 3 en una fila en móvil: si no cabe, permitir scroll horizontal */
+@media (max-width: 420px){
+  .participants-row{
+    grid-auto-flow: column;
+    grid-auto-columns: 70%;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .participant{ scroll-snap-align: start; }
 }
