@@ -1,0 +1,18 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin: 0; background: #0b0f14; color: #e6edf3; }
+.container { max-width: 980px; margin: 0 auto; padding: 18px; }
+h1, h2 { margin: 0 0 10px 0; }
+.muted { color: #9fb0c0; }
+.card {
+  background: #111826; border: 1px solid #1f2a3a; border-radius: 12px;
+  padding: 16px; margin: 14px 0;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border-bottom: 1px solid #1f2a3a; text-align: left; }
+th { color: #c9d7e3; font-weight: 600; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #1f2a3a; color: #c9d7e3; font-size: 12px; }
+.grid { display: grid; gap: 10px; }
+.matchday { padding: 12px; border: 1px solid #1f2a3a; border-radius: 10px; background: #0f1622; }
+.row { display:flex; gap: 10px; justify-content: space-between; align-items: baseline; }
+.score { font-variant-numeric: tabular-nums; }
+.footer { margin-top: 10px; }

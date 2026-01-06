@@ -1,0 +1,524 @@
+{
+  "lastUpdated": "2026-01-06 11:30 (-05:00)",
+  "standings": [
+    {
+      "pos": 1,
+      "name": "BJV - FRANCIA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 2,
+      "name": "BJV - ESPAÑA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 3,
+      "name": "BJV - BARCELONA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 4,
+      "name": "BJV - EQUIPO IDEAL",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 5,
+      "name": "CLT - FRANCIA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 6,
+      "name": "CLT - ESPAÑA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 7,
+      "name": "CLT - ARGENTINA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 8,
+      "name": "CLT - EQUIPO IDEAL",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 9,
+      "name": "ROA - FRANCIA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 10,
+      "name": "ROA - BARCELONA",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 11,
+      "name": "ROA - REAL MADRID",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    },
+    {
+      "pos": 12,
+      "name": "ROA - EQUIPO IDEAL",
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0,
+      "pts": 0
+    }
+  ],
+  "matchdays": [
+    {
+      "name": "Jornada 1",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "ROA - REAL MADRID",
+          "score": "-"
+        },
+        {
+          "home": "BJV - BARCELONA",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "ROA - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - FRANCIA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "CLT - ARGENTINA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 2",
+      "matches": [
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "BJV - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - BARCELONA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "ROA - FRANCIA",
+          "away": "BJV - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - EQUIPO IDEAL",
+          "away": "BJV - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "BJV - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "CLT - FRANCIA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 3",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "ROA - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - EQUIPO IDEAL",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "CLT - ARGENTINA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - BARCELONA",
+          "away": "CLT - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "CLT - FRANCIA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 4",
+      "matches": [
+        {
+          "home": "ROA - FRANCIA",
+          "away": "BJV - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - EQUIPO IDEAL",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "ROA - REAL MADRID",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - FRANCIA",
+          "away": "BJV - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "BJV - BARCELONA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 5",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "ROA - FRANCIA",
+          "away": "CLT - ARGENTINA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - BARCELONA",
+          "away": "CLT - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "CLT - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - EQUIPO IDEAL",
+          "away": "BJV - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "BJV - BARCELONA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 6",
+      "matches": [
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "BJV - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - FRANCIA",
+          "away": "ROA - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - BARCELONA",
+          "away": "ROA - REAL MADRID",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 7",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "CLT - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "CLT - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - EQUIPO IDEAL",
+          "away": "BJV - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "ROA - FRANCIA",
+          "away": "BJV - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - BARCELONA",
+          "away": "BJV - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 8",
+      "matches": [
+        {
+          "home": "CLT - FRANCIA",
+          "away": "BJV - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "CLT - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - BARCELONA",
+          "away": "CLT - ARGENTINA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "ROA - EQUIPO IDEAL",
+          "away": "ROA - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 9",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "BJV - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - FRANCIA",
+          "away": "BJV - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "BJV - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "CLT - EQUIPO IDEAL",
+          "away": "ROA - REAL MADRID",
+          "score": "-"
+        },
+        {
+          "home": "ROA - FRANCIA",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 10",
+      "matches": [
+        {
+          "home": "BJV - BARCELONA",
+          "away": "BJV - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - ESPAÑA",
+          "away": "BJV - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "ROA - EQUIPO IDEAL",
+          "away": "CLT - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - REAL MADRID",
+          "away": "CLT - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - BARCELONA",
+          "away": "CLT - ARGENTINA",
+          "score": "-"
+        },
+        {
+          "home": "ROA - FRANCIA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        }
+      ]
+    },
+    {
+      "name": "Jornada 11",
+      "matches": [
+        {
+          "home": "BJV - FRANCIA",
+          "away": "BJV - ESPAÑA",
+          "score": "-"
+        },
+        {
+          "home": "BJV - BARCELONA",
+          "away": "ROA - EQUIPO IDEAL",
+          "score": "-"
+        },
+        {
+          "home": "BJV - EQUIPO IDEAL",
+          "away": "ROA - REAL MADRID",
+          "score": "-"
+        },
+        {
+          "home": "CLT - FRANCIA",
+          "away": "ROA - BARCELONA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ESPAÑA",
+          "away": "ROA - FRANCIA",
+          "score": "-"
+        },
+        {
+          "home": "CLT - ARGENTINA",
+          "away": "CLT - EQUIPO IDEAL",
+          "score": "-"
+        }
+      ]
+    }
+  ]
+}
