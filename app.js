@@ -189,3 +189,4 @@ function renderMatchdays(data) {
     document.getElementById("matchdays").innerHTML = "";
   }
 })();
+
