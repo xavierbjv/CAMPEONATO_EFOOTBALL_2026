@@ -4,28 +4,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Campeonato eFootball 2026 - Resultados</title>
+  <meta name="description" content="Resultados y tabla de posiciones del Campeonato eFootball 2026" />
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-  <header class="container">
-    <h1>Campeonato eFootball 2026</h1>
-    <p class="muted">Publicación oficial de resultados y tabla de posiciones</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-title">
+        <h1>Campeonato eFootball 2026</h1>
+        <p class="muted">Publicación oficial de resultados y tabla de posiciones</p>
+      </div>
+
+      <div class="header-meta">
+        <span class="badge" id="lastUpdated"></span>
+      </div>
+    </div>
   </header>
 
-  <main class="container">
+  <main class="container stack">
     <section class="card">
-      <h2>Tabla de posiciones</h2>
-      <div id="standings"></div>
+      <div class="card-head">
+        <h2>Tabla de posiciones</h2>
+        <span class="hint">Orden: PTS, DG, GF</span>
+      </div>
+      <div class="table-wrap" id="standings"></div>
     </section>
 
     <section class="card">
-      <h2>Resultados por jornada</h2>
+      <div class="card-head">
+        <h2>Resultados por jornada</h2>
+        <span class="hint">Toque una jornada para ver sus partidos</span>
+      </div>
       <div id="matchdays"></div>
     </section>
 
-    <section class="footer muted">
-      <span id="lastUpdated"></span>
-    </section>
+    <footer class="footer muted">
+      Recomendación: registre evidencias por jornada (capturas/actas) y mantenga trazabilidad por commits.
+    </footer>
   </main>
 
   <script src="app.js"></script>
