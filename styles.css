@@ -132,3 +132,66 @@ th{ color:#c9d7e3; font-weight:600; }
 
   .card{ padding:12px; }
 }
+/* ===== Tipografía fluida (general) ===== */
+body{
+  font-size: clamp(14px, 1.6vw, 16px);
+}
+
+/* Titulares fluidos */
+h1{
+  font-size: clamp(18px, 4.5vw, 24px);
+}
+h2{
+  font-size: clamp(15px, 3.6vw, 18px);
+}
+
+/* Texto auxiliar */
+.muted, .footer, .badge{
+  font-size: clamp(12px, 3.2vw, 13px);
+}
+
+/* ===== Tabla: tipografía y padding adaptativo ===== */
+.table-wrap table{
+  font-size: clamp(12px, 3.2vw, 14px);
+}
+
+.table-wrap th,
+.table-wrap td{
+  padding: clamp(6px, 2.4vw, 10px);
+}
+
+/* Evitar cortes extraños en nombres largos */
+.table-wrap td{
+  white-space: nowrap;
+}
+
+/* ===== Jornadas: tipografía adaptativa ===== */
+.matchday{
+  font-size: clamp(13px, 3.3vw, 14px);
+}
+
+.row{
+  gap: 8px;
+}
+
+/* Si su render de jornadas usa .teams y .result (recomendado) */
+.teams{
+  font-size: clamp(13px, 3.4vw, 14px);
+}
+.result{
+  font-size: clamp(12px, 3.2vw, 13px);
+  color: var(--muted);
+}
+
+/* ===== Ajustes extra para pantallas muy pequeñas ===== */
+@media (max-width: 420px){
+  /* Reducir ligeramente el min-width de la tabla para menos scroll */
+  .table-wrap table{
+    min-width: 680px;
+  }
+
+  /* Compactar tarjetas */
+  .card{
+    padding: 12px;
+  }
+}
