@@ -16,3 +16,44 @@ th { color: #c9d7e3; font-weight: 600; }
 .row { display:flex; gap: 10px; justify-content: space-between; align-items: baseline; }
 .score { font-variant-numeric: tabular-nums; }
 .footer { margin-top: 10px; }
+
+/* ===== Participantes ===== */
+.participants{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+}
+
+.p-card{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background: rgba(255,255,255,.02);
+}
+
+.p-card img{
+  width:58px;
+  height:58px;
+  border-radius:999px;
+  object-fit:cover;
+  border:1px solid var(--line);
+}
+
+.p-name{
+  font-weight:800;
+  font-size:14px;
+  letter-spacing:.3px;
+}
+
+.p-meta{
+  font-size:12px;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .participants{ grid-template-columns: 1fr; }
+  .p-card{ justify-content:flex-start; }
+}
