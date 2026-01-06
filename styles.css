@@ -1,21 +1,81 @@
-:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-body { margin: 0; background: #0b0f14; color: #e6edf3; }
-.container { max-width: 980px; margin: 0 auto; padding: 18px; }
-h1, h2 { margin: 0 0 10px 0; }
-.muted { color: #9fb0c0; }
-.card {
-  background: #111826; border: 1px solid #1f2a3a; border-radius: 12px;
-  padding: 16px; margin: 14px 0;
+:root{
+  --bg:#0b0f14;
+  --text:#e6edf3;
+  --muted:#9fb0c0;
+  --card:#111826;
+  --card2:#0f1622;
+  --line:#1f2a3a;
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 10px; border-bottom: 1px solid #1f2a3a; text-align: left; }
-th { color: #c9d7e3; font-weight: 600; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: #1f2a3a; color: #c9d7e3; font-size: 12px; }
-.grid { display: grid; gap: 10px; }
-.matchday { padding: 12px; border: 1px solid #1f2a3a; border-radius: 10px; background: #0f1622; }
-.row { display:flex; gap: 10px; justify-content: space-between; align-items: baseline; }
-.score { font-variant-numeric: tabular-nums; }
-.footer { margin-top: 10px; }
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.container{
+  max-width:980px;
+  margin:0 auto;
+  padding:18px;
+}
+
+h1,h2{ margin:0 0 10px 0; }
+
+.muted{ color:var(--muted); }
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+  margin:14px 0;
+}
+
+/* Tablas: evitar desbordes en móvil */
+.table-wrap{
+  width:100%;
+  overflow:auto;
+  -webkit-overflow-scrolling: touch;
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+table{ width:100%; border-collapse:collapse; min-width:760px; }
+th,td{ padding:10px; border-bottom:1px solid var(--line); text-align:left; }
+th{ color:#c9d7e3; font-weight:600; }
+
+.badge{
+  display:inline-block;
+  padding:2px 8px;
+  border-radius:999px;
+  background:var(--line);
+  color:#c9d7e3;
+  font-size:12px;
+}
+
+.grid{ display:grid; gap:10px; }
+
+.matchday{
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--card2);
+}
+
+.row{
+  display:flex;
+  gap:10px;
+  justify-content:space-between;
+  align-items:baseline;
+}
+
+.score{ font-variant-numeric: tabular-nums; }
+
+.footer{ margin-top:10px; }
 
 /* ===== Participantes: 3 en una fila, mismo tamaño ===== */
 .participants-row{
@@ -32,8 +92,8 @@ th { color: #c9d7e3; font-weight: 600; }
 
 .avatar{
   width:100%;
-  aspect-ratio: 1 / 1;            /* cuadrado automático */
-  border-radius:14px;              /* o 999px si los quiere circulares */
+  aspect-ratio: 1 / 1;
+  border-radius:14px;
   overflow:hidden;
   border:1px solid var(--line);
   background: rgba(255,255,255,.02);
@@ -43,7 +103,7 @@ th { color: #c9d7e3; font-weight: 600; }
   width:100%;
   height:100%;
   display:block;
-  object-fit:cover;                /* recorta uniforme y mantiene proporción */
+  object-fit:cover;
   object-position:center;
 }
 
@@ -52,19 +112,23 @@ th { color: #c9d7e3; font-weight: 600; }
   font-weight:800;
   font-size:14px;
   letter-spacing:.3px;
-  color: var(--text);
 }
 
-/* Mantener 3 en una fila en móvil: si no cabe, permitir scroll horizontal */
-@media (max-width: 420px){
+/* Móvil: mantener una sola fila y permitir scroll horizontal */
+@media (max-width: 480px){
+  .container{ padding:14px; }
+
   .participants-row{
     grid-auto-flow: column;
-    grid-auto-columns: 70%;
+    grid-auto-columns: 68%;
     grid-template-columns: unset;
     overflow-x: auto;
     padding-bottom: 6px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
   }
+
   .participant{ scroll-snap-align: start; }
+
+  .card{ padding:12px; }
 }
