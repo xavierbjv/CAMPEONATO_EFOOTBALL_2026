@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b5cff" />
   <title>Campeonato eFootball 2026 - Resultados</title>
   <meta name="description" content="Resultados y tabla de posiciones del Campeonato eFootball 2026" />
   <link rel="stylesheet" href="styles.css" />
@@ -17,13 +18,12 @@
       </div>
 
       <div class="header-meta">
-        <span class="badge" id="lastUpdated"></span>
+        <span class="badge" id="lastUpdated" aria-live="polite"></span>
       </div>
     </div>
   </header>
 
-  <main class="container stack">
-
+  <main class="container stack" id="main">
     <!-- Participantes (tarjeta independiente) -->
     <section class="card">
       <div class="card-head">
@@ -60,7 +60,7 @@
         <h2>Tabla de posiciones</h2>
         <span class="hint">Orden: PTS, DG, GF</span>
       </div>
-      <div class="table-wrap" id="standings"></div>
+      <div class="table-wrap" id="standings" role="region" aria-label="Tabla de posiciones"></div>
     </section>
 
     <!-- Jornadas -->
@@ -69,7 +69,7 @@
         <h2>Resultados por jornada</h2>
         <span class="hint">Toque una jornada para ver sus partidos</span>
       </div>
-      <div id="matchdays"></div>
+      <div id="matchdays" role="list"></div>
     </section>
 
     <footer class="footer muted">
