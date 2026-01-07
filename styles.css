@@ -1,13 +1,16 @@
 :root{
-  --bg:#f6f8fb;
+  --bg:#f4f7fb;
   --card:#ffffff;
   --muted:#6b7280;
-  --accent:#0b5cff;
-  --text:#0f1724;
-  --radius:12px;
+  --accent:#0b84ff;        /* azul principal */
+  --accent-2:#ff7a59;      /* secundario (naranja) para highlights */
+  --success:#10b981;       /* verde para posiciones */
+  --danger:#ef4444;
+  --text:#0b1220;
+  --radius:14px;
   --gap:12px;
   --container-padding:16px;
-  --shadow: 0 6px 18px rgba(13, 27, 62, 0.06);
+  --shadow: 0 8px 26px rgba(11,16,35,0.06);
   --max-width:980px;
   --touch-size:48px;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -34,13 +37,11 @@ body{
   padding:var(--container-padding);
 }
 
-/* Vertical spacing between stacked card sections */
-.stack > .card + .card{margin-top:var(--gap)}
-
 /* Header */
 .site-header{
-  background:transparent;
+  background:linear-gradient(90deg, rgba(11,132,255,0.08), rgba(255,122,89,0.03));
   padding:10px 0;
+  border-bottom:1px solid rgba(11,132,255,0.06);
 }
 .header-inner{
   display:flex;
@@ -51,11 +52,12 @@ body{
 .header-title h1{
   margin:0;
   font-size:1.05rem;
+  color:var(--accent);
 }
 .header-title p{margin:4px 0 0;font-size:.86rem;color:var(--muted)}
 .header-meta .badge{
   display:inline-block;
-  background:rgba(11,92,255,0.1);
+  background:rgba(11,132,255,0.12);
   color:var(--accent);
   padding:6px 10px;
   border-radius:999px;
@@ -64,12 +66,20 @@ body{
 }
 
 /* Cards */
+.stack > .card + .card{margin-top:var(--gap)}
 .card{
   background:var(--card);
   border-radius:var(--radius);
   padding:12px;
   box-shadow:var(--shadow);
   overflow:hidden;
+  border:1px solid rgba(11,16,35,0.03);
+}
+
+/* Highlight card for standings */
+.card.highlight{
+  border:2px solid rgba(11,132,255,0.12);
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
 }
 
 /* Card head */
@@ -80,10 +90,67 @@ body{
   gap:8px;
   margin-bottom:10px;
 }
-.card-head h2{margin:0;font-size:1rem}
+.card-head h2{margin:0;font-size:1rem;color:var(--text)}
 .hint{color:var(--muted);font-size:.85rem}
 
-/* Participants row: horizontal scroll on small screens */
+/* Table wrapper: allow horizontal scroll on small screens */
+.table-wrap{
+  width:100%;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  border-radius:8px;
+  background:linear-gradient(180deg,#fff,#fbfcff);
+  padding:6px;
+}
+
+/* Table styling */
+.table-wrap table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:560px;
+  font-size:.95rem;
+}
+.table-wrap thead th{
+  text-align:left;
+  padding:10px 12px;
+  font-weight:700;
+  background:linear-gradient(90deg,#f8fbff,#ffffff);
+  position:sticky;
+  top:0;
+  z-index:1;
+  border-bottom:1px solid #eef5ff;
+  color:var(--accent);
+}
+.table-wrap tbody td{
+  padding:10px 12px;
+  border-bottom:1px dashed #f1f5f9;
+  vertical-align:middle;
+}
+.table-wrap tr:first-child td{
+  background:linear-gradient(90deg, rgba(11,132,255,0.03), transparent);
+}
+.pos-1{background:linear-gradient(90deg, rgba(16,185,129,0.06), transparent)}
+.pos-2{background:linear-gradient(90deg, rgba(11,132,255,0.03), transparent)}
+.pos-3{background:linear-gradient(90deg, rgba(255,122,89,0.03), transparent)}
+
+/* Participants banner */
+.participants-banner{
+  width:100%;
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:6px;
+  display:block;
+  cursor:zoom-in;
+  background:linear-gradient(90deg, rgba(11,132,255,0.04), rgba(255,122,89,0.03));
+}
+.participants-banner img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+
+/* Participants row (fallback) */
 .participants-row{
   display:flex;
   gap:12px;
@@ -107,7 +174,7 @@ body{
   align-items:center;
   justify-content:center;
   margin:0 auto 6px;
-  box-shadow:0 4px 10px rgba(11,92,255,0.06);
+  box-shadow:0 6px 18px rgba(11,16,35,0.06);
 }
 .avatar img{
   width:100%;
@@ -116,43 +183,12 @@ body{
   display:block;
 }
 
-/* Table wrapper: allow horizontal scroll on small screens */
-.table-wrap{
-  width:100%;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
-  border-radius:8px;
-}
-
-/* Basic table styling (suitable for dynamic content populated by JS) */
-.table-wrap table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:560px; /* ensures horizontal scroll on very small devices */
-  font-size:.95rem;
-}
-.table-wrap thead th{
-  text-align:left;
-  padding:10px 12px;
-  font-weight:700;
-  background:linear-gradient(90deg,#fff,#f8fbff);
-  position:sticky;
-  top:0;
-  z-index:1;
-  border-bottom:1px solid #eef2ff;
-}
-.table-wrap tbody td{
-  padding:10px 12px;
-  border-bottom:1px dashed #f1f5f9;
-  vertical-align:middle;
-}
-.table-wrap tr:last-child td{border-bottom:0}
-
 /* Matchday list: mobile-friendly cards */
 #matchdays{
   display:flex;
   flex-direction:column;
   gap:10px;
+  margin-top:6px;
 }
 .matchday{
   background:linear-gradient(180deg,#fff,#fbfdff);
@@ -162,6 +198,7 @@ body{
   flex-direction:column;
   gap:8px;
   cursor:default;
+  border:1px solid rgba(11,16,35,0.03);
 }
 .matchday .title{
   display:flex;
@@ -181,8 +218,6 @@ body{
   cursor:pointer;
 }
 .matches{display:none;padding-top:6px;}
-
-/* When .open is added (JS toggles) */
 .matchday.open .matches{display:block}
 
 /* Footer */
@@ -190,22 +225,22 @@ body{
 
 /* Accessibility: focus */
 button:focus, a:focus{
-  outline:3px solid rgba(11,92,255,0.18);
+  outline:3px solid rgba(11,132,255,0.16);
   outline-offset:2px;
   border-radius:6px;
 }
 
-/* Larger screens: increase spacing and show grid layout */
+/* Larger screens: more breathing room */
 @media (min-width:720px){
   .header-inner{gap:20px}
-  .header-title h1{font-size:1.2rem}
-  .participants-row{gap:18px}
+  .header-title h1{font-size:1.25rem}
+  .participants-banner img{height:220px}
   .participant{min-width:88px}
 }
 
-/* Desktop: show cards side-by-side if space allows */
+/* Desktop layout */
 @media (min-width:1000px){
   .stack{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
-  .stack > .card:last-child{grid-column:1/-1} /* make matchdays span full width */
+  .stack > .card:last-child{grid-column:1/-1}
   .container{padding:24px}
 }
