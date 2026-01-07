@@ -1,197 +1,211 @@
 :root{
-  --bg:#0b0f14;
-  --text:#e6edf3;
-  --muted:#9fb0c0;
-  --card:#111826;
-  --card2:#0f1622;
-  --line:#1f2a3a;
-
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b5cff;
+  --text:#0f1724;
+  --radius:12px;
+  --gap:12px;
+  --container-padding:16px;
+  --shadow: 0 6px 18px rgba(13, 27, 62, 0.06);
+  --max-width:980px;
+  --touch-size:48px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-*{ box-sizing:border-box; }
-
+/* Global, mobile-first */
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
   margin:0;
-  background:var(--bg);
+  background:linear-gradient(180deg,var(--bg),#fff);
   color:var(--text);
+  font-size:16px;
+  line-height:1.35;
+  -webkit-text-size-adjust:100%;
 }
 
 .container{
-  max-width:980px;
+  width:100%;
+  max-width:var(--max-width);
   margin:0 auto;
-  padding:18px;
+  padding:var(--container-padding);
 }
 
-h1,h2{ margin:0 0 10px 0; }
+/* Vertical spacing between stacked card sections */
+.stack > .card + .card{margin-top:var(--gap)}
 
-.muted{ color:var(--muted); }
+/* Header */
+.site-header{
+  background:transparent;
+  padding:10px 0;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.header-title h1{
+  margin:0;
+  font-size:1.05rem;
+}
+.header-title p{margin:4px 0 0;font-size:.86rem;color:var(--muted)}
+.header-meta .badge{
+  display:inline-block;
+  background:rgba(11,92,255,0.1);
+  color:var(--accent);
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:.85rem;
+}
 
+/* Cards */
 .card{
   background:var(--card);
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:16px;
-  margin:14px 0;
-}
-
-/* Tablas: evitar desbordes en móvil */
-.table-wrap{
-  width:100%;
-  overflow:auto;
-  -webkit-overflow-scrolling: touch;
-  border:1px solid var(--line);
-  border-radius:12px;
-}
-
-table{ width:100%; border-collapse:collapse; min-width:760px; }
-th,td{ padding:10px; border-bottom:1px solid var(--line); text-align:left; }
-th{ color:#c9d7e3; font-weight:600; }
-
-.badge{
-  display:inline-block;
-  padding:2px 8px;
-  border-radius:999px;
-  background:var(--line);
-  color:#c9d7e3;
-  font-size:12px;
-}
-
-.grid{ display:grid; gap:10px; }
-
-.matchday{
+  border-radius:var(--radius);
   padding:12px;
-  border:1px solid var(--line);
-  border-radius:10px;
-  background:var(--card2);
-}
-
-.row{
-  display:flex;
-  gap:10px;
-  justify-content:space-between;
-  align-items:baseline;
-}
-
-.score{ font-variant-numeric: tabular-nums; }
-
-.footer{ margin-top:10px; }
-
-/* ===== Participantes: 3 en una fila, mismo tamaño ===== */
-.participants-row{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:14px;
-  align-items:start;
-}
-
-.participant{
-  margin:0;
-  text-align:center;
-}
-
-.avatar{
-  width:100%;
-  aspect-ratio: 1 / 1;
-  border-radius:14px;
+  box-shadow:var(--shadow);
   overflow:hidden;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.02);
 }
 
+/* Card head */
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:10px;
+}
+.card-head h2{margin:0;font-size:1rem}
+.hint{color:var(--muted);font-size:.85rem}
+
+/* Participants row: horizontal scroll on small screens */
+.participants-row{
+  display:flex;
+  gap:12px;
+  overflow:auto;
+  padding:6px 4px;
+  -webkit-overflow-scrolling:touch;
+}
+.participant{
+  min-width:72px;
+  text-align:center;
+  margin:0;
+  flex:0 0 auto;
+}
+.avatar{
+  width:72px;
+  height:72px;
+  border-radius:999px;
+  overflow:hidden;
+  background:linear-gradient(180deg,#f0f4ff,#fff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 6px;
+  box-shadow:0 4px 10px rgba(11,92,255,0.06);
+}
 .avatar img{
   width:100%;
   height:100%;
-  display:block;
   object-fit:cover;
-  object-position:center;
+  display:block;
 }
 
-.participant figcaption{
-  margin-top:8px;
-  font-weight:800;
-  font-size:14px;
-  letter-spacing:.3px;
+/* Table wrapper: allow horizontal scroll on small screens */
+.table-wrap{
+  width:100%;
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  border-radius:8px;
 }
 
-/* Móvil: mantener una sola fila y permitir scroll horizontal */
-@media (max-width: 480px){
-  .container{ padding:14px; }
-
-  .participants-row{
-    grid-auto-flow: column;
-    grid-auto-columns: 68%;
-    grid-template-columns: unset;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-  }
-
-  .participant{ scroll-snap-align: start; }
-
-  .card{ padding:12px; }
-}
-/* ===== Tipografía fluida (general) ===== */
-body{
-  font-size: clamp(14px, 1.6vw, 16px);
-}
-
-/* Titulares fluidos */
-h1{
-  font-size: clamp(18px, 4.5vw, 24px);
-}
-h2{
-  font-size: clamp(15px, 3.6vw, 18px);
-}
-
-/* Texto auxiliar */
-.muted, .footer, .badge{
-  font-size: clamp(12px, 3.2vw, 13px);
-}
-
-/* ===== Tabla: tipografía y padding adaptativo ===== */
+/* Basic table styling (suitable for dynamic content populated by JS) */
 .table-wrap table{
-  font-size: clamp(12px, 3.2vw, 14px);
+  width:100%;
+  border-collapse:collapse;
+  min-width:560px; /* ensures horizontal scroll on very small devices */
+  font-size:.95rem;
 }
-
-.table-wrap th,
-.table-wrap td{
-  padding: clamp(6px, 2.4vw, 10px);
+.table-wrap thead th{
+  text-align:left;
+  padding:10px 12px;
+  font-weight:700;
+  background:linear-gradient(90deg,#fff,#f8fbff);
+  position:sticky;
+  top:0;
+  z-index:1;
+  border-bottom:1px solid #eef2ff;
 }
-
-/* Evitar cortes extraños en nombres largos */
-.table-wrap td{
-  white-space: nowrap;
+.table-wrap tbody td{
+  padding:10px 12px;
+  border-bottom:1px dashed #f1f5f9;
+  vertical-align:middle;
 }
+.table-wrap tr:last-child td{border-bottom:0}
 
-/* ===== Jornadas: tipografía adaptativa ===== */
+/* Matchday list: mobile-friendly cards */
+#matchdays{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
 .matchday{
-  font-size: clamp(13px, 3.3vw, 14px);
+  background:linear-gradient(180deg,#fff,#fbfdff);
+  border-radius:10px;
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  cursor:default;
+}
+.matchday .title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+.matchday button.toggle{
+  height:var(--touch-size);
+  min-width:var(--touch-size);
+  padding:6px 10px;
+  border-radius:8px;
+  border:0;
+  background:var(--accent);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+.matches{display:none;padding-top:6px;}
+
+/* When .open is added (JS toggles) */
+.matchday.open .matches{display:block}
+
+/* Footer */
+.footer{margin-top:12px;padding:8px;text-align:center;font-size:.85rem;color:var(--muted)}
+
+/* Accessibility: focus */
+button:focus, a:focus{
+  outline:3px solid rgba(11,92,255,0.18);
+  outline-offset:2px;
+  border-radius:6px;
 }
 
-.row{
-  gap: 8px;
+/* Larger screens: increase spacing and show grid layout */
+@media (min-width:720px){
+  .header-inner{gap:20px}
+  .header-title h1{font-size:1.2rem}
+  .participants-row{gap:18px}
+  .participant{min-width:88px}
 }
 
-/* Si su render de jornadas usa .teams y .result (recomendado) */
-.teams{
-  font-size: clamp(13px, 3.4vw, 14px);
-}
-.result{
-  font-size: clamp(12px, 3.2vw, 13px);
-  color: var(--muted);
-}
-
-/* ===== Ajustes extra para pantallas muy pequeñas ===== */
-@media (max-width: 420px){
-  /* Reducir ligeramente el min-width de la tabla para menos scroll */
-  .table-wrap table{
-    min-width: 680px;
-  }
-
-  /* Compactar tarjetas */
-  .card{
-    padding: 12px;
-  }
+/* Desktop: show cards side-by-side if space allows */
+@media (min-width:1000px){
+  .stack{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
+  .stack > .card:last-child{grid-column:1/-1} /* make matchdays span full width */
+  .container{padding:24px}
 }
