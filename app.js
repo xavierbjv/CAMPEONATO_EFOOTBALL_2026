@@ -1,56 +1,75 @@
-// Fragmento opcional para mejorar la experiencia táctil en móviles.
-// Si ya tienes app.js, fusiona o añade estas funciones sin sustituir tu lógica existente.
+// Mejora móvil: fecha, toggles de jornadas y comportamiento de la imagen de participantes.
+// Fusiona con tu app.js existente si ya hay lógica de inyección de tablas/jornadas.
 
 (function(){
-  // Actualiza la fecha de última actualización (si no lo hace ya tu app)
+  // Fecha de última actualización
   const last = document.getElementById('lastUpdated');
   if(last && !last.textContent.trim()){
     const d = new Date();
     last.textContent = `Última actualización: ${d.toLocaleString()}`;
   }
 
-  // Delegación: detectar items de jornada una vez insertados por tu código
+  // Inicializar toggles de jornadas (si las jornadas se inyectan como .matchday)
   const matchdaysRoot = document.getElementById('matchdays');
-  if(!matchdaysRoot) return;
+  if(matchdaysRoot){
+    function initializeMatchdayToggles(){
+      matchdaysRoot.querySelectorAll('.matchday').forEach(md=>{
+        if(md.dataset.toggled) return;
+        md.dataset.toggled = '1';
+        const title = md.querySelector('.title');
+        if(!title) return;
 
-  // Si las jornadas se inyectan como elementos .matchday, añadimos manejador.
-  function initializeMatchdayToggles(){
-    matchdaysRoot.querySelectorAll('.matchday').forEach(md=>{
-      // Evitamos doble inicialización
-      if(md.dataset.toggled) return;
-      md.dataset.toggled = '1';
-      const title = md.querySelector('.title');
-      if(!title) return;
-
-      // Crear botón táctil (si no existe)
-      let btn = md.querySelector('button.toggle');
-      if(!btn){
-        btn = document.createElement('button');
-        btn.className = 'toggle';
-        btn.type = 'button';
-        btn.innerText = 'Ver';
-        title.appendChild(btn);
-      }
-
-      btn.addEventListener('click', ()=>{
-        const isOpen = md.classList.toggle('open');
-        btn.innerText = isOpen ? 'Ocultar' : 'Ver';
-        // Para accesibilidad, movemos foco al contenedor de partidos cuando se abre
-        if(isOpen){
-          const matches = md.querySelector('.matches');
-          if(matches) matches.setAttribute('tabindex','-1');
-          matches && matches.focus && matches.focus();
+        let btn = md.querySelector('button.toggle');
+        if(!btn){
+          btn = document.createElement('button');
+          btn.className = 'toggle';
+          btn.type = 'button';
+          btn.innerText = 'Ver';
+          title.appendChild(btn);
         }
+
+        btn.addEventListener('click', ()=>{
+          const isOpen = md.classList.toggle('open');
+          btn.innerText = isOpen ? 'Ocultar' : 'Ver';
+          if(isOpen){
+            const matches = md.querySelector('.matches');
+            if(matches) matches.setAttribute('tabindex','-1');
+            matches && matches.focus && matches.focus();
+          }
+        });
       });
-    });
+    }
+
+    const observer = new MutationObserver(()=> initializeMatchdayToggles());
+    observer.observe(matchdaysRoot, {childList:true, subtree:true});
+    initializeMatchdayToggles();
   }
 
-  // Observador para inicializar toggles cuando tu app inyecte contenido dinámico
-  const observer = new MutationObserver((mutations)=>{
-    initializeMatchdayToggles();
-  });
-  observer.observe(matchdaysRoot, {childList:true, subtree:true});
+  // Interacción: al tocar el banner de participantes lo ampliamos (simple modal-like)
+  const banner = document.querySelector('.participants-banner img');
+  if(banner){
+    banner.style.cursor = 'zoom-in';
+    banner.addEventListener('click', ()=>{
+      // creador simple de modal
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.inset = 0;
+      overlay.style.background = 'rgba(2,6,23,0.7)';
+      overlay.style.display = 'flex';
+      overlay.style.alignItems = 'center';
+      overlay.style.justifyContent = 'center';
+      overlay.style.zIndex = 9999;
+      overlay.addEventListener('click', ()=> document.body.removeChild(overlay));
 
-  // Inicializar por si ya hay contenido
-  initializeMatchdayToggles();
+      const img = document.createElement('img');
+      img.src = banner.src;
+      img.alt = banner.alt || 'Participantes';
+      img.style.maxWidth = '96%';
+      img.style.maxHeight = '92%';
+      img.style.borderRadius = '10px';
+      overlay.appendChild(img);
+
+      document.body.appendChild(overlay);
+    });
+  }
 })();
