@@ -1,10 +1,6 @@
-![Banner](assets/banner.png)
-
 # CAMPEONATO_EFOOTBALL_2026
 
-![Logo](assets/logo.png)
-
-Sitio web estático para publicar el fixture, resultados y tabla de posiciones del Campeonato eFootball 2026.
+Sitio web para publicar los resultados y tabla de posiciones del Campeonato eFootball 2026.
 
 ## Objetivo
 - Publicación pública (GitHub Pages) de tabla de posiciones y resultados por jornada.
