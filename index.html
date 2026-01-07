@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b5cff" />
+  <meta name="theme-color" content="#0b84ff" />
   <title>Campeonato eFootball 2026 - Resultados</title>
   <meta name="description" content="Resultados y tabla de posiciones del Campeonato eFootball 2026" />
   <link rel="stylesheet" href="styles.css" />
@@ -13,8 +13,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <div class="header-title">
-        <h1>Campeonato eFootball Enero 2026</h1>
-        <p class="muted">Publicación oficial de resultados y tabla de posiciones</p>
+        <h1>Campeonato eFootball — Enero 2026</h1>
+        <p class="muted">Resultados oficiales</p>
       </div>
 
       <div class="header-meta">
@@ -24,13 +24,30 @@
   </header>
 
   <main class="container stack" id="main">
-    <!-- Participantes (tarjeta independiente) -->
-    <section class="card">
+    <!-- 1) Tabla de posiciones: ahora aparece primero -->
+    <section class="card highlight" id="standings-card" aria-label="Tabla de posiciones">
+      <div class="card-head">
+        <h2>Tabla de posiciones</h2>
+        <span class="hint">Orden: PTS, DG, GF</span>
+      </div>
+      <div class="table-wrap" id="standings"></div>
+    </section>
+
+    <!-- 2) Participantes: mostrado como imagen/banner (con fallback a avatares) -->
+    <section class="card" id="participants-card" aria-label="Participantes">
       <div class="card-head">
         <h2>Participantes</h2>
+        <span class="hint">Toque la imagen para ver detalles</span>
       </div>
 
-      <div class="participants-row" aria-label="Participantes">
+      <!-- Banner principal: coloque assets/participants/banner.jpg en el repo -->
+      <figure class="participants-banner" role="img" aria-label="Participantes del campeonato">
+        <img src="assets/participants/banner.jpg" alt="Participantes: BJV, CLT, ROA" loading="lazy" onerror="this.style.display='none'; document.getElementById('participants-fallback').style.display='flex'"/>
+        <figcaption class="sr-only">Participantes: BJV, CLT, ROA</figcaption>
+      </figure>
+
+      <!-- Fallback: si no existe banner, mostramos avatares horizontales -->
+      <div class="participants-row" id="participants-fallback" aria-hidden="false" style="display:none;">
         <figure class="participant">
           <div class="avatar">
             <img src="assets/participants/bjv.jpg" alt="Participante BJV" loading="lazy" />
@@ -54,16 +71,7 @@
       </div>
     </section>
 
-    <!-- Tabla -->
-    <section class="card">
-      <div class="card-head">
-        <h2>Tabla de posiciones</h2>
-        <span class="hint">Orden: PTS, DG, GF</span>
-      </div>
-      <div class="table-wrap" id="standings" role="region" aria-label="Tabla de posiciones"></div>
-    </section>
-
-    <!-- Jornadas -->
+    <!-- Jornadas: tarjetas plegables -->
     <section class="card">
       <div class="card-head">
         <h2>Resultados por jornada</h2>
