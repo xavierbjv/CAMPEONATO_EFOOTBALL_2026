@@ -111,3 +111,12 @@ th {
     font-size: 1.1rem;
 }
 
+/* Separador por fecha real */
+.fila-fecha td {
+    background: #0b3c5d;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+}
+
