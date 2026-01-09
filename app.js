@@ -179,3 +179,16 @@ function inicializarEquipo(obj, nombre) {
         };
     }
 }
+
+function activarColapsado() {
+    document.querySelectorAll(".toggle").forEach(btn => {
+        btn.onclick = () => {
+            const fecha = btn.dataset.fecha;
+            const filas = document.querySelectorAll(`.fecha-${fecha}`);
+            const oculto = filas[0]?.style.display === "none";
+
+            filas.forEach(f => f.style.display = oculto ? "" : "none");
+            btn.textContent = oculto ? "➖" : "➕";
+        };
+    });
+}
