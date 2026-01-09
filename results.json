@@ -1,5 +1,5 @@
 [
-  { "fecha": "FECHA 1", "local": "BJV - BARCELONA", "visitante": "CLT - ARGENTINA", "goles_local": 2, "goles_visitante": 1 },
+  { "fecha": "FECHA 1", "local": "BJV - BARCELONA", "visitante": "CLT - ARGENTINA", "goles_local": 2, "goles_visitante": 1, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 1", "local": "BJV - EQUIPO IDEAL", "visitante": "CLT - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 1", "local": "BJV - ESPAÑA", "visitante": "ROA - FRANCIA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 1", "local": "BJV - FRANCIA", "visitante": "ROA - BARCELONA", "goles_local": null, "goles_visitante": null },
@@ -13,10 +13,10 @@
   { "fecha": "FECHA 2", "local": "CLT - ARGENTINA", "visitante": "ROA - BARCELONA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 2", "local": "CLT - FRANCIA", "visitante": "ROA - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
 
-  { "fecha": "FECHA 3", "local": "BJV - BARCELONA", "visitante": "CLT - ESPAÑA", "goles_local": 3, "goles_visitante": 2 },
+  { "fecha": "FECHA 3", "local": "BJV - BARCELONA", "visitante": "CLT - ESPAÑA", "goles_local": 3, "goles_visitante": 2, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 3", "local": "BJV - EQUIPO IDEAL", "visitante": "ROA - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 3", "local": "BJV - ESPAÑA", "visitante": "ROA - REAL MADRID", "goles_local": null, "goles_visitante": null },
-  { "fecha": "FECHA 3", "local": "BJV - FRANCIA", "visitante": "CLT - ARGENTINA", "goles_local": 6, "goles_visitante": 0 },
+  { "fecha": "FECHA 3", "local": "BJV - FRANCIA", "visitante": "CLT - ARGENTINA", "goles_local": 6, "goles_visitante": 0, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 3", "local": "CLT - EQUIPO IDEAL", "visitante": "ROA - FRANCIA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 3", "local": "CLT - FRANCIA", "visitante": "ROA - BARCELONA", "goles_local": null, "goles_visitante": null },
 
@@ -36,14 +36,14 @@
 
   { "fecha": "FECHA 6", "local": "BJV - BARCELONA", "visitante": "ROA - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 6", "local": "BJV - EQUIPO IDEAL", "visitante": "ROA - FRANCIA", "goles_local": null, "goles_visitante": null },
-  { "fecha": "FECHA 6", "local": "BJV - ESPAÑA", "visitante": "CLT - ESPAÑA", "goles_local": 3, "goles_visitante": 3 },
+  { "fecha": "FECHA 6", "local": "BJV - ESPAÑA", "visitante": "CLT - ESPAÑA", "goles_local": 3, "goles_visitante": 3, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 6", "local": "BJV - FRANCIA", "visitante": "CLT - FRANCIA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 6", "local": "CLT - ARGENTINA", "visitante": "ROA - REAL MADRID", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 6", "local": "CLT - EQUIPO IDEAL", "visitante": "ROA - BARCELONA", "goles_local": null, "goles_visitante": null },
 
   { "fecha": "FECHA 7", "local": "BJV - BARCELONA", "visitante": "ROA - FRANCIA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 7", "local": "BJV - EQUIPO IDEAL", "visitante": "CLT - ARGENTINA", "goles_local": null, "goles_visitante": null },
-  { "fecha": "FECHA 7", "local": "BJV - ESPAÑA", "visitante": "CLT - FRANCIA", "goles_local": 3, "goles_visitante": 0 },
+  { "fecha": "FECHA 7", "local": "BJV - ESPAÑA", "visitante": "CLT - FRANCIA", "goles_local": 3, "goles_visitante": 0, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 7", "local": "BJV - FRANCIA", "visitante": "ROA - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 7", "local": "CLT - EQUIPO IDEAL", "visitante": "ROA - REAL MADRID", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 7", "local": "CLT - ESPAÑA", "visitante": "ROA - BARCELONA", "goles_local": null, "goles_visitante": null },
@@ -85,7 +85,7 @@
 
   { "fecha": "FECHA 13", "local": "CLT - FRANCIA", "visitante": "BJV - BARCELONA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 13", "local": "ROA - BARCELONA", "visitante": "BJV - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
-  { "fecha": "FECHA 13", "local": "CLT - ARGENTINA", "visitante": "BJV - ESPAÑA", "goles_local": 2, "goles_visitante": 1 },
+  { "fecha": "FECHA 13", "local": "CLT - ARGENTINA", "visitante": "BJV - ESPAÑA", "goles_local": 2, "goles_visitante": 1, "fecha_real": "2026-01-08" },
   { "fecha": "FECHA 13", "local": "ROA - REAL MADRID", "visitante": "BJV - FRANCIA", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 13", "local": "ROA - EQUIPO IDEAL", "visitante": "CLT - EQUIPO IDEAL", "goles_local": null, "goles_visitante": null },
   { "fecha": "FECHA 13", "local": "ROA - FRANCIA", "visitante": "CLT - ESPAÑA", "goles_local": null, "goles_visitante": null },
