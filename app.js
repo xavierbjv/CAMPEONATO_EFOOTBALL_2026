@@ -93,6 +93,33 @@ function renderPosiciones(partidos) {
         });
 }
 
+function renderResumenCompetidores(tablaOrdenada) {
+    const totales = {
+        BJV: 0,
+        CLT: 0,
+        ROA: 0
+    };
+
+    tablaOrdenada.forEach(([equipo, datos]) => {
+        const key = equipo.split(" - ")[0];
+        totales[key] += datos.pts;
+    });
+
+    const max = Math.max(totales.BJV, totales.CLT, totales.ROA);
+
+    Object.keys(totales).forEach(key => {
+        const cont = document.getElementById(key);
+        const puntos = totales[key];
+        const porcentaje = max > 0 ? (puntos / max) * 100 : 0;
+
+        cont.querySelector(".pts").innerText = puntos;
+        cont.querySelector(".progreso").style.width = porcentaje + "%";
+    });
+}
+
+
+
+
 /* =========================
    INICIALIZACIÓN DE EQUIPO
    ========================= */
