@@ -19,8 +19,9 @@ function renderPartidos(partidos) {
     partidos.forEach(p => {
         const jugado = p.goles_local !== null && p.goles_visitante !== null;
 
+        const tr = document.createElement("tr");
+
         if (jugado) {
-            const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${p.fecha}</td>
                 <td>${p.local}</td>
@@ -30,7 +31,6 @@ function renderPartidos(partidos) {
             `;
             tbodyJugados.appendChild(tr);
         } else {
-            const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${p.fecha}</td>
                 <td>${p.local}</td>
@@ -43,7 +43,7 @@ function renderPartidos(partidos) {
 }
 
 /* =========================
-   TABLA DE POSICIONES
+   TABLA DE POSICIONES + RESUMEN
    ========================= */
 function renderPosiciones(partidos) {
     const equipos = {};
@@ -74,35 +74,36 @@ function renderPosiciones(partidos) {
         }
     });
 
+    /* 👉 CLAVE: guardar tabla ordenada */
+    const ordenados = Object.entries(equipos)
+        .sort((a, b) => b[1].pts - a[1].pts);
+
     const tbody = document.querySelector("#tabla-posiciones tbody");
     tbody.innerHTML = "";
 
-    Object.entries(equipos)
-        .sort((a, b) => b[1].pts - a[1].pts)
-        .forEach(([nombre, e]) => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-                <td>${nombre}</td>
-                <td>${e.pj}</td>
-                <td>${e.pg}</td>
-                <td>${e.pe}</td>
-                <td>${e.pp}</td>
-                <td>${e.pts}</td>
-            `;
-            tbody.appendChild(tr);
-        });
-    renderResumenCompetidores(ordenados);
+    ordenados.forEach(([nombre, e]) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${nombre}</td>
+            <td>${e.pj}</td>
+            <td>${e.pg}</td>
+            <td>${e.pe}</td>
+            <td>${e.pp}</td>
+            <td>${e.pts}</td>
+        `;
+        tbody.appendChild(tr);
+    });
 
+    /* 👉 AHORA sí funciona */
+    renderResumenCompetidores(ordenados);
 }
 
+/* =========================
+   RESUMEN BJV / CLT / ROA
+   ========================= */
 function renderResumenCompetidores(tablaOrdenada) {
-    const totales = {
-        BJV: 0,
-        CLT: 0,
-        ROA: 0
-    };
+    const totales = { BJV: 0, CLT: 0, ROA: 0 };
 
-    // Sumar puntos por competidor
     tablaOrdenada.forEach(([equipo, datos]) => {
         const competidor = equipo.split(" - ")[0];
         if (totales.hasOwnProperty(competidor)) {
@@ -116,18 +117,11 @@ function renderResumenCompetidores(tablaOrdenada) {
         const contenedor = document.getElementById(key);
         if (!contenedor) return;
 
-        const spanPts = contenedor.querySelector(".pts");
-        const barra = contenedor.querySelector(".progreso");
-
-        spanPts.textContent = puntos;
-
-        const porcentaje = max > 0 ? (puntos / max) * 100 : 0;
-        barra.style.width = porcentaje + "%";
+        contenedor.querySelector(".pts").textContent = puntos;
+        contenedor.querySelector(".progreso").style.width =
+            max > 0 ? (puntos / max) * 100 + "%" : "0%";
     });
 }
-
-
-
 
 /* =========================
    INICIALIZACIÓN DE EQUIPO
