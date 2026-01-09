@@ -1,17 +1,24 @@
+/* =========================
+   VARIABLES GLOBALES
+   ========================= */
 :root {
     --primary: #0b3c5d;
     --bg: #f4f6f9;
 }
 
+/* =========================
+   ESTILO GENERAL
+   ========================= */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: var(--bg);
 }
 
-.header, .footer {
+.header,
+.footer {
     background: var(--primary);
-    color: #fff;
+    color: #ffffff;
     text-align: center;
     padding: 20px;
 }
@@ -20,19 +27,37 @@ body {
     padding: 20px;
 }
 
+/* =========================
+   TABLAS (TIPOGRAFÍA COMPACTA)
+   ========================= */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: #ffffff;
     margin-top: 15px;
+    font-size: 0.85rem;   /* ↓ tamaño de letra */
 }
 
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
+th,
+td {
+    border: 1px solid #cccccc;
+    padding: 6px;        /* ↓ espaciado más compacto */
     text-align: center;
 }
 
 th {
     background: #eaeaea;
+    font-size: 0.8rem;   /* encabezado ligeramente más pequeño */
+}
+
+/* =========================
+   AJUSTES VISUALES OPCIONALES
+   ========================= */
+#tabla-pendientes td:nth-child(3) {
+    color: #b8860b;      /* color para estado pendiente */
+    font-weight: bold;
+}
+
+#tabla-jugados td:nth-child(3) {
+    font-weight: bold;
 }
