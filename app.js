@@ -192,3 +192,10 @@ function activarColapsado() {
         };
     });
 }
+
+document.getElementById("filtro-equipo")
+    .addEventListener("change", () => {
+        fetch("results.json")
+            .then(r => r.json())
+            .then(data => renderPartidos(data));
+    });
