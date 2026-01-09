@@ -10,36 +10,63 @@ fetch("results.json")
    PARTIDOS JUGADOS / PENDIENTES
    ========================= */
 function renderPartidos(partidos) {
+
     const tbodyJugados = document.querySelector("#tabla-jugados tbody");
     const tbodyPendientes = document.querySelector("#tabla-pendientes tbody");
 
     tbodyJugados.innerHTML = "";
     tbodyPendientes.innerHTML = "";
 
+    const jugadosPorFecha = {};
+
+    // 1. Clasificar partidos
     partidos.forEach(p => {
         const jugado = p.goles_local !== null && p.goles_visitante !== null;
 
-        const tr = document.createElement("tr");
-
         if (jugado) {
-            tr.innerHTML = `
-                <td>${p.fecha}</td>
-                <td>${p.local}</td>
-                <td>${p.goles_local} - ${p.goles_visitante}</td>
-                <td>${p.visitante}</td>
-                <td>${p.fecha_real ?? "-"}</td>
-            `;
-            tbodyJugados.appendChild(tr);
+            const fechaReal = p.fecha_real ?? "SIN FECHA";
+
+            if (!jugadosPorFecha[fechaReal]) {
+                jugadosPorFecha[fechaReal] = [];
+            }
+            jugadosPorFecha[fechaReal].push(p);
         } else {
+            const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${p.fecha}</td>
                 <td>${p.local}</td>
-                <td style="text-align:center">⏳ Pendiente</td>
+                <td>⏳ Pendiente</td>
                 <td>${p.visitante}</td>
             `;
             tbodyPendientes.appendChild(tr);
         }
     });
+
+    // 2. Pintar tabla agrupada
+    Object.keys(jugadosPorFecha)
+        .sort()
+        .forEach(fechaReal => {
+
+            /* Fila separadora por fecha real */
+            const trFecha = document.createElement("tr");
+            trFecha.classList.add("fila-fecha");
+            trFecha.innerHTML = `
+                <td colspan="4">Partidos Jugados – ${fechaReal}</td>
+            `;
+            tbodyJugados.appendChild(trFecha);
+
+            /* Partidos de esa fecha */
+            jugadosPorFecha[fechaReal].forEach(p => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${p.fecha}</td>
+                    <td>${p.local}</td>
+                    <td>${p.goles_local} - ${p.goles_visitante}</td>
+                    <td>${p.visitante}</td>
+                `;
+                tbodyJugados.appendChild(tr);
+            });
+        });
 }
 
 /* =========================
