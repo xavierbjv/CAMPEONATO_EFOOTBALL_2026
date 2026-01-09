@@ -94,8 +94,16 @@ th {
 .progreso {
     height: 100%;
     width: 0%;
-    background: #0b3c5d;
+    min-width: 6px;              /* ← CLAVE: mantiene alineación */
+    background: var(--primary);
+    display: block;
+    border-radius: 7px;
     transition: width 0.5s ease;
+}
+
+.barra {
+    display: flex;
+    align-items: center;
 }
 
 .competidor .pts {
