@@ -1,90 +1,59 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b84ff" />
-  <title>Campeonato eFootball 2026 - Resultados</title>
-  <meta name="description" content="Resultados y tabla de posiciones del Campeonato eFootball 2026" />
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Campeonato eFootball 2026</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="header-title">
-        <h1>Campeonato eFootball — Enero 2026</h1>
-        <p class="muted">Resultados oficiales</p>
-      </div>
 
-      <div class="header-meta">
-        <span class="badge" id="lastUpdated" aria-live="polite"></span>
-      </div>
-    </div>
-  </header>
+<header class="header">
+    <h1>CAMPEONATO EFOOTBALL 2026</h1>
+    <p>Resultados oficiales y tabla general de posiciones</p>
+</header>
 
-  <main class="container stack" id="main">
-    <!-- 1) Tabla de posiciones: ahora aparece primero -->
-    <section class="card highlight" id="standings-card" aria-label="Tabla de posiciones">
-      <div class="card-head">
-        <h2>Tabla de posiciones</h2>
-        <span class="hint">Orden: PTS, DG, GF</span>
-      </div>
-      <div class="table-wrap" id="standings"></div>
+<main class="container">
+
+    <section>
+        <h2>Todos los Partidos</h2>
+        <table id="tabla-partidos">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Local</th>
+                    <th>Marcador</th>
+                    <th>Visitante</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </section>
 
-    <!-- 2) Participantes: mostrado como imagen/banner (con fallback a avatares) -->
-    <section class="card" id="participants-card" aria-label="Participantes">
-      <div class="card-head">
-        <h2>Participantes</h2>
-        <span class="hint">Toque la imagen para ver detalles</span>
-      </div>
-
-      <!-- Banner principal: coloque assets/participants/banner.jpg en el repo -->
-      <figure class="participants-banner" role="img" aria-label="Participantes del campeonato">
-        <img src="assets/participants/banner.jpg" alt="Participantes: BJV, CLT, ROA" loading="lazy" onerror="this.style.display='none'; document.getElementById('participants-fallback').style.display='flex'"/>
-        <figcaption class="sr-only">Participantes: BJV, CLT, ROA</figcaption>
-      </figure>
-
-      <!-- Fallback: si no existe banner, mostramos avatares horizontales -->
-      <div class="participants-row" id="participants-fallback" aria-hidden="false" style="display:none;">
-        <figure class="participant">
-          <div class="avatar">
-            <img src="assets/participants/bjv.jpg" alt="Participante BJV" loading="lazy" />
-          </div>
-          <figcaption>BJV</figcaption>
-        </figure>
-
-        <figure class="participant">
-          <div class="avatar">
-            <img src="assets/participants/clt.jpg" alt="Participante CLT" loading="lazy" />
-          </div>
-          <figcaption>CLT</figcaption>
-        </figure>
-
-        <figure class="participant">
-          <div class="avatar">
-            <img src="assets/participants/roa.jpg" alt="Participante ROA" loading="lazy" />
-          </div>
-          <figcaption>ROA</figcaption>
-        </figure>
-      </div>
+    <section>
+        <h2>Tabla de Posiciones General</h2>
+        <table id="tabla-posiciones">
+            <thead>
+                <tr>
+                    <th>Equipo</th>
+                    <th>PJ</th>
+                    <th>PG</th>
+                    <th>PE</th>
+                    <th>PP</th>
+                    <th>Pts</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </section>
 
-    <!-- Jornadas: tarjetas plegables -->
-    <section class="card">
-      <div class="card-head">
-        <h2>Resultados por jornada</h2>
-        <span class="hint">Toque una jornada para ver sus partidos</span>
-      </div>
-      <div id="matchdays" role="list"></div>
-    </section>
+</main>
 
-    <footer class="footer muted">
-      Recomendación: registre evidencias por jornada (capturas/actas) y mantenga trazabilidad por commits.
-    </footer>
-  </main>
+<footer class="footer">
+    <p>© 2026 Campeonato eFootball</p>
+</footer>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
