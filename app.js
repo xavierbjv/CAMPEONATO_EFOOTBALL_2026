@@ -91,6 +91,8 @@ function renderPosiciones(partidos) {
             `;
             tbody.appendChild(tr);
         });
+    renderResumenCompetidores(ordenados);
+
 }
 
 function renderResumenCompetidores(tablaOrdenada) {
@@ -100,20 +102,27 @@ function renderResumenCompetidores(tablaOrdenada) {
         ROA: 0
     };
 
+    // Sumar puntos por competidor
     tablaOrdenada.forEach(([equipo, datos]) => {
-        const key = equipo.split(" - ")[0];
-        totales[key] += datos.pts;
+        const competidor = equipo.split(" - ")[0];
+        if (totales.hasOwnProperty(competidor)) {
+            totales[competidor] += datos.pts;
+        }
     });
 
     const max = Math.max(totales.BJV, totales.CLT, totales.ROA);
 
-    Object.keys(totales).forEach(key => {
-        const cont = document.getElementById(key);
-        const puntos = totales[key];
-        const porcentaje = max > 0 ? (puntos / max) * 100 : 0;
+    Object.entries(totales).forEach(([key, puntos]) => {
+        const contenedor = document.getElementById(key);
+        if (!contenedor) return;
 
-        cont.querySelector(".pts").innerText = puntos;
-        cont.querySelector(".progreso").style.width = porcentaje + "%";
+        const spanPts = contenedor.querySelector(".pts");
+        const barra = contenedor.querySelector(".progreso");
+
+        spanPts.textContent = puntos;
+
+        const porcentaje = max > 0 ? (puntos / max) * 100 : 0;
+        barra.style.width = porcentaje + "%";
     });
 }
 
