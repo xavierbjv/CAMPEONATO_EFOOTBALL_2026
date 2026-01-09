@@ -6,7 +6,9 @@ fetch("results.json")
     })
     .catch(err => console.error("Error cargando datos:", err));
 
-
+/* =========================
+   PARTIDOS JUGADOS / PENDIENTES
+   ========================= */
 function renderPartidos(partidos) {
     const tbodyJugados = document.querySelector("#tabla-jugados tbody");
     const tbodyPendientes = document.querySelector("#tabla-pendientes tbody");
@@ -15,7 +17,9 @@ function renderPartidos(partidos) {
     tbodyPendientes.innerHTML = "";
 
     partidos.forEach(p => {
-        if (p.jugado) {
+        const jugado = p.goles_local !== null && p.goles_visitante !== null;
+
+        if (jugado) {
             const tr = document.createElement("tr");
             tr.innerHTML = `
                 <td>${p.fecha}</td>
@@ -38,7 +42,9 @@ function renderPartidos(partidos) {
     });
 }
 
-
+/* =========================
+   TABLA DE POSICIONES
+   ========================= */
 function renderPosiciones(partidos) {
     const equipos = {};
 
@@ -46,8 +52,8 @@ function renderPosiciones(partidos) {
         inicializarEquipo(equipos, p.local);
         inicializarEquipo(equipos, p.visitante);
 
-        // ❌ NO contar partidos pendientes
-        if (!p.jugado) return;
+        const jugado = p.goles_local !== null && p.goles_visitante !== null;
+        if (!jugado) return;
 
         equipos[p.local].pj++;
         equipos[p.visitante].pj++;
@@ -87,9 +93,17 @@ function renderPosiciones(partidos) {
         });
 }
 
-
+/* =========================
+   INICIALIZACIÓN DE EQUIPO
+   ========================= */
 function inicializarEquipo(obj, nombre) {
     if (!obj[nombre]) {
-        obj[nombre] = { pj: 0, pg: 0, pe: 0, pp: 0, pts: 0 };
+        obj[nombre] = {
+            pj: 0,
+            pg: 0,
+            pe: 0,
+            pp: 0,
+            pts: 0
+        };
     }
 }
