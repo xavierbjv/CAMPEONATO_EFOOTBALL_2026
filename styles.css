@@ -1,246 +1,38 @@
-:root{
-  --bg:#f4f7fb;
-  --card:#ffffff;
-  --muted:#6b7280;
-  --accent:#0b84ff;        /* azul principal */
-  --accent-2:#ff7a59;      /* secundario (naranja) para highlights */
-  --success:#10b981;       /* verde para posiciones */
-  --danger:#ef4444;
-  --text:#0b1220;
-  --radius:14px;
-  --gap:12px;
-  --container-padding:16px;
-  --shadow: 0 8px 26px rgba(11,16,35,0.06);
-  --max-width:980px;
-  --touch-size:48px;
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+:root {
+    --primary: #0b3c5d;
+    --bg: #f4f6f9;
 }
 
-/* Global, mobile-first */
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:linear-gradient(180deg,var(--bg),#fff);
-  color:var(--text);
-  font-size:16px;
-  line-height:1.35;
-  -webkit-text-size-adjust:100%;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
 }
 
-.container{
-  width:100%;
-  max-width:var(--max-width);
-  margin:0 auto;
-  padding:var(--container-padding);
+.header, .footer {
+    background: var(--primary);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
 }
 
-/* Header */
-.site-header{
-  background:linear-gradient(90deg, rgba(11,132,255,0.08), rgba(255,122,89,0.03));
-  padding:10px 0;
-  border-bottom:1px solid rgba(11,132,255,0.06);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.header-title h1{
-  margin:0;
-  font-size:1.05rem;
-  color:var(--accent);
-}
-.header-title p{margin:4px 0 0;font-size:.86rem;color:var(--muted)}
-.header-meta .badge{
-  display:inline-block;
-  background:rgba(11,132,255,0.12);
-  color:var(--accent);
-  padding:6px 10px;
-  border-radius:999px;
-  font-weight:600;
-  font-size:.85rem;
+.container {
+    padding: 20px;
 }
 
-/* Cards */
-.stack > .card + .card{margin-top:var(--gap)}
-.card{
-  background:var(--card);
-  border-radius:var(--radius);
-  padding:12px;
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  border:1px solid rgba(11,16,35,0.03);
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    margin-top: 15px;
 }
 
-/* Highlight card for standings */
-.card.highlight{
-  border:2px solid rgba(11,132,255,0.12);
-  background:linear-gradient(180deg,#ffffff,#fbfdff);
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
 }
 
-/* Card head */
-.card-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  margin-bottom:10px;
-}
-.card-head h2{margin:0;font-size:1rem;color:var(--text)}
-.hint{color:var(--muted);font-size:.85rem}
-
-/* Table wrapper: allow horizontal scroll on small screens */
-.table-wrap{
-  width:100%;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
-  border-radius:8px;
-  background:linear-gradient(180deg,#fff,#fbfcff);
-  padding:6px;
-}
-
-/* Table styling */
-.table-wrap table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:560px;
-  font-size:.95rem;
-}
-.table-wrap thead th{
-  text-align:left;
-  padding:10px 12px;
-  font-weight:700;
-  background:linear-gradient(90deg,#f8fbff,#ffffff);
-  position:sticky;
-  top:0;
-  z-index:1;
-  border-bottom:1px solid #eef5ff;
-  color:var(--accent);
-}
-.table-wrap tbody td{
-  padding:10px 12px;
-  border-bottom:1px dashed #f1f5f9;
-  vertical-align:middle;
-}
-.table-wrap tr:first-child td{
-  background:linear-gradient(90deg, rgba(11,132,255,0.03), transparent);
-}
-.pos-1{background:linear-gradient(90deg, rgba(16,185,129,0.06), transparent)}
-.pos-2{background:linear-gradient(90deg, rgba(11,132,255,0.03), transparent)}
-.pos-3{background:linear-gradient(90deg, rgba(255,122,89,0.03), transparent)}
-
-/* Participants banner */
-.participants-banner{
-  width:100%;
-  border-radius:10px;
-  overflow:hidden;
-  margin-top:6px;
-  display:block;
-  cursor:zoom-in;
-  background:linear-gradient(90deg, rgba(11,132,255,0.04), rgba(255,122,89,0.03));
-}
-.participants-banner img{
-  width:100%;
-  height:180px;
-  object-fit:cover;
-  display:block;
-}
-
-/* Participants row (fallback) */
-.participants-row{
-  display:flex;
-  gap:12px;
-  overflow:auto;
-  padding:6px 4px;
-  -webkit-overflow-scrolling:touch;
-}
-.participant{
-  min-width:72px;
-  text-align:center;
-  margin:0;
-  flex:0 0 auto;
-}
-.avatar{
-  width:72px;
-  height:72px;
-  border-radius:999px;
-  overflow:hidden;
-  background:linear-gradient(180deg,#f0f4ff,#fff);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin:0 auto 6px;
-  box-shadow:0 6px 18px rgba(11,16,35,0.06);
-}
-.avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
-
-/* Matchday list: mobile-friendly cards */
-#matchdays{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  margin-top:6px;
-}
-.matchday{
-  background:linear-gradient(180deg,#fff,#fbfdff);
-  border-radius:10px;
-  padding:8px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  cursor:default;
-  border:1px solid rgba(11,16,35,0.03);
-}
-.matchday .title{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-}
-.matchday button.toggle{
-  height:var(--touch-size);
-  min-width:var(--touch-size);
-  padding:6px 10px;
-  border-radius:8px;
-  border:0;
-  background:var(--accent);
-  color:#fff;
-  font-weight:600;
-  cursor:pointer;
-}
-.matches{display:none;padding-top:6px;}
-.matchday.open .matches{display:block}
-
-/* Footer */
-.footer{margin-top:12px;padding:8px;text-align:center;font-size:.85rem;color:var(--muted)}
-
-/* Accessibility: focus */
-button:focus, a:focus{
-  outline:3px solid rgba(11,132,255,0.16);
-  outline-offset:2px;
-  border-radius:6px;
-}
-
-/* Larger screens: more breathing room */
-@media (min-width:720px){
-  .header-inner{gap:20px}
-  .header-title h1{font-size:1.25rem}
-  .participants-banner img{height:220px}
-  .participant{min-width:88px}
-}
-
-/* Desktop layout */
-@media (min-width:1000px){
-  .stack{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
-  .stack > .card:last-child{grid-column:1/-1}
-  .container{padding:24px}
+th {
+    background: #eaeaea;
 }
