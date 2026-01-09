@@ -97,3 +97,9 @@ th {
     background: #0b3c5d;
     transition: width 0.5s ease;
 }
+
+.competidor .pts {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
