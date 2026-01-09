@@ -46,6 +46,9 @@ function renderPosiciones(partidos) {
         inicializarEquipo(equipos, p.local);
         inicializarEquipo(equipos, p.visitante);
 
+        // ❌ NO contar partidos pendientes
+        if (!p.jugado) return;
+
         equipos[p.local].pj++;
         equipos[p.visitante].pj++;
 
@@ -83,6 +86,7 @@ function renderPosiciones(partidos) {
             tbody.appendChild(tr);
         });
 }
+
 
 function inicializarEquipo(obj, nombre) {
     if (!obj[nombre]) {
