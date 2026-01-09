@@ -1,26 +1,43 @@
 fetch("results.json")
-    .then(res => res.json())
+    .then(r => r.json())
     .then(data => {
         renderPartidos(data);
         renderPosiciones(data);
     })
-    .catch(err => console.error("Error cargando resultados:", err));
+    .catch(err => console.error("Error cargando datos:", err));
+
 
 function renderPartidos(partidos) {
-    const tbody = document.querySelector("#tabla-partidos tbody");
-    tbody.innerHTML = "";
+    const tbodyJugados = document.querySelector("#tabla-jugados tbody");
+    const tbodyPendientes = document.querySelector("#tabla-pendientes tbody");
+
+    tbodyJugados.innerHTML = "";
+    tbodyPendientes.innerHTML = "";
 
     partidos.forEach(p => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${p.fecha}</td>
-            <td>${p.local}</td>
-            <td>${p.goles_local} - ${p.goles_visitante}</td>
-            <td>${p.visitante}</td>
-        `;
-        tbody.appendChild(tr);
+        if (p.jugado) {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${p.fecha}</td>
+                <td>${p.local}</td>
+                <td>${p.goles_local} - ${p.goles_visitante}</td>
+                <td>${p.visitante}</td>
+                <td>${p.fecha_real ?? "-"}</td>
+            `;
+            tbodyJugados.appendChild(tr);
+        } else {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${p.fecha}</td>
+                <td>${p.local}</td>
+                <td style="text-align:center">⏳ Pendiente</td>
+                <td>${p.visitante}</td>
+            `;
+            tbodyPendientes.appendChild(tr);
+        }
     });
 }
+
 
 function renderPosiciones(partidos) {
     const equipos = {};
