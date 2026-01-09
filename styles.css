@@ -120,3 +120,23 @@ th {
     padding: 8px;
 }
 
+/* Cabecera de fecha */
+.fila-fecha td {
+    background: #0b3c5d;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Contador */
+.contador {
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+/* Botón toggle */
+.toggle {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
