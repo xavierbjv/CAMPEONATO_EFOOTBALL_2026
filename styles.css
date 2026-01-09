@@ -61,3 +61,39 @@ th {
 #tabla-jugados td:nth-child(3) {
     font-weight: bold;
 }
+
+/* =========================
+   RESUMEN DE COMPETIDORES
+   ========================= */
+.resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.competidor {
+    background: #ffffff;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.competidor img {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+.barra {
+    background: #e0e0e0;
+    height: 14px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.progreso {
+    height: 100%;
+    width: 0%;
+    background: #0b3c5d;
+    transition: width 0.5s ease;
+}
