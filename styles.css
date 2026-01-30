@@ -184,3 +184,223 @@ th {
         transform: translateY(-6px);
     }
 }
+/* =========================
+   BOTÓN HISTORIAL CAMPEONATOS
+   ========================= */
+
+.nav-historial {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.btn-historial {
+    display: inline-block;
+    background: linear-gradient(45deg, #ffd700, #ff9800);
+    color: #0b3c5d;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+    animation: pulseHistorial 2s infinite;
+}
+
+/* Hover elegante */
+.btn-historial:hover {
+    background: linear-gradient(45deg, #ff9800, #ffd700);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+}
+
+/* Animación de pulso */
+@keyframes pulseHistorial {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+    }
+}
+
+
+/* =========================
+   TIMELINE CAMPEONATOS
+   ========================= */
+
+.timeline {
+    position: relative;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background: #0b3c5d;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item::after {
+    content: "●";
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    font-size: 20px;
+    color: #0b3c5d;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+.content {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.content img {
+    width: 80px;
+    border-radius: 50%;
+    margin: 10px 0;
+}
+
+.year {
+    font-weight: bold;
+    color: #ff9800;
+}
+
+/* Pendiente */
+.pendiente .content {
+    background: #f5f5f5;
+    border: 2px dashed #999;
+}
+
+.pendiente-icon {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 20px;
+    }
+    .timeline-item.right {
+        left: 0;
+    }
+}
+
+/* =========================
+   TIMELINE HISTÓRICO
+   ========================= */
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    background: #0b3c5d;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px;
+}
+
+.timeline-item.left { left: 0; }
+.timeline-item.right { left: 50%; }
+
+.timeline-item::after {
+    content: "●";
+    position: absolute;
+    top: 35px;
+    right: -10px;
+    font-size: 20px;
+    color: #0b3c5d;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+.content {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.year {
+    font-weight: bold;
+    color: #ff9800;
+    font-size: 1.1rem;
+}
+
+/* Espacio reservado para imagen */
+.img-placeholder {
+    margin: 12px 0;
+}
+
+.img-placeholder img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #0b3c5d;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .timeline::after {
+        left: 20px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+    }
+    .timeline-item.right {
+        left: 0;
+    }
+}
