@@ -404,3 +404,83 @@ th {
         left: 0;
     }
 }
+
+
+/* =========================
+   RANKING DE CAMPEONES
+   ========================= */
+
+.ranking-campeones {
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.titulo-ranking {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.fila-campeon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+    background: #f2f2f2;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.fila-campeon.pendiente {
+    background: #fff8e1;
+    border: 2px dashed #ff9800;
+}
+
+.equipo {
+    display: flex;
+    align-items: center;
+    width: 220px;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.equipo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.nombre {
+    font-size: 1.2rem;
+}
+
+.total {
+    margin-left: auto;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.trofeos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.trofeo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.6rem;
+}
+
+.trofeo small {
+    font-size: 0.65rem;
+    margin-top: -4px;
+    color: #555;
+}
+
+/* Pendiente */
+.trofeo.pendiente {
+    color: #ff9800;
+}
